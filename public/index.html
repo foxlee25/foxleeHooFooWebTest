@@ -1,65 +1,242 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
   <head>
+      <!-- Google Analytics -->
+      <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-109418177-1', 'auto');
+          ga('send', 'pageview');
+      </script>
+      <!-- End Google Analytics -->
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="keyword" content="HooFoo, Bitcoin, bitcoin wallet, cryptocurrency, ethereum, litecoin, security, segwit2x, bcc, coinbase">
+    <meta name="description" content="The first hot and cold combination wallet, designed to secure and simplify your cryptocurrency transaction for your iOS devices.">
+    <meta name="author" content="HooFoo, Inc.">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/4.6.2/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/4.6.2/firebase-auth.js"></script>
-    <script defer src="/__/firebase/4.6.2/firebase-database.js"></script>
-    <script defer src="/__/firebase/4.6.2/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/4.6.2/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+    <title>HooFoo</title>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/app.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- swiper -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.6/css/swiper.min.css">
+
+
+      <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+      <script>
+          // Initialize Firebase
+          var config = {
+              apiKey: "AIzaSyBjeGLQmKQNX4MkKKLjFWLeALXOdrAPo0M",
+              authDomain: "hoofooweb.firebaseapp.com",
+              databaseURL: "https://hoofooweb.firebaseio.com",
+              projectId: "hoofooweb",
+              storageBucket: "hoofooweb.appspot.com",
+              messagingSenderId: "378104840671"
+          };
+          firebase.initializeApp(config);
+      </script>
+
+      <!-- Scroll animation -->
+      <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
+      <script>
+          window.sr = ScrollReveal();
+      </script>
+
+      <style>
+          html, body {
+              position: relative;
+              height: 100%;
+          }
+          body {
+              font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+              font-size: 14px;
+              margin: 0;
+              padding: 0;
+          }
+
+          .swiper-container {
+              max-width: 1280px;
+              width: 100%;
+          }
+          @media (min-width: 800px) {
+              .swiper-container {
+                  height: 60vw;
+                  max-height: 770px;
+                  min-height: 590px;
+              }
+              .swiper-pagination {
+                  top: 60%;
+                  left: 18vw!important;
+              }
+          }
+          @media (max-width: 800px) {
+              .swiper-container {
+                  height: 160vw;
+              }
+              .swiper-pagination {
+                  top: 32%;
+              }
+          }
+          .swiper-slide {
+              max-width: 1280px;
+              background-position: center;
+              background-size: cover;
+          }
+      </style>
   </head>
+
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+
+    <div class="container-fluid">
+        <header class="col-sm-12 section_1">
+            <img id="logo" src="img/header_logo.png">
+            <img class="intro" id="intro_1" src="img/1721.png">
+            <p class="slide-title">The New Generation Bitcoin Hardware Wallet</p>
+            <button class="btn">
+                <a href="https://www.kickstarter.com/projects/782592554/1524748927?ref=389418&token=984dfb98">PRE-ORDER NOW</a>
+            </button>
+
+        </header>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+
+        <div class="section_2">
+            <div class="bg-color-wrapper">
+                <p class="intro-text" id="text1">
+                    The first mobile app and hardware combination wallet, designed to secure and
+                    simplify your cryptocurrency transaction for your ios device.
+                </p>
+                <div class="container-fluid">
+                <img class="intro" id="section_2_pic" src="img/1m.jpg">
+                </div>
+            </div>
+        </div>
+
+    <div class="container-fluid">
+            <div class="feature-group">
+                <img class="feature fade" src="img/icon_mobile-10.png">
+                <img class="feature fade" src="img/icon_mobile-11.png">
+                <img class="feature fade" src="img/icon_mobile-12.png">
+                <img class="feature fade" src="img/icon_mobile-13.png">
+                <img class="feature fade" src="img/icon_mobile-14.png">
+                <img class="feature fade" src="img/icon_mobile-15.png">
+            </div>
+        </div>
+
+
+
+    <!-- Swiper -->
+<div class="section_3">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" id="swiper-slide1">
+                <img src="img/app_screen_mobile.png" class="intro fade" id="section_3_pic">
+                <div class="text intro-text text2 fade" id="slide-text-1">
+                    Hoofoo hardware wallet operates with you smartphones that lets you
+                    invest or trade anytime and anywhere you want without carrying
+                    your heavy laptop
+                </div>
+            </div>
+            <div class="swiper-slide" id="swiper-slide2">
+                <img src="img/app_screen_2_mobile.png" class="intro" id="section_3_pic2">
+                <div class="text intro-text text2" id="slide-text-2">
+                    Real-time currency price charts let you monitor the coin market,
+                    and the investing alarm notifies you when it is a good time to
+                    invest
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
+    </div>
+</div>
+
+
+    <!-- Begin MailChimp Signup Form -->
+    <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
+
+
+    <div class=" container-fluid section_4">
+        <div id="mc_embed_signup">
+            <form action="https://hoofoo.us15.list-manage.com/subscribe/post?u=eb6c4139a09d1253ba320a119&amp;id=5781892464" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                    <label for="mce-EMAIL">Sign Up to Get Limited Special Offer!</label>
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_eb6c4139a09d1253ba320a119_5781892464" tabindex="-1" value=""></div>
+                    <div class="clear"><input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="btn"></div>
+                </div>
+            </form>
+        </div>
+        <img id="section_4_pic" src="img/3_dime.jpg">
+    </div>
+
+    <!--End mc_embed_signup-->
+
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: #6c757d;">
+      <div class="container-fluid">
+          <div class="social-media-group">
+              <a href="https://www.facebook.com/hoofoohardwarewallet/" class="fa fa-facebook"></a>
+              <a href="https://twitter.com/HooFooWallet" class="fa fa-twitter"></a>
+              <a href="https://www.instagram.com/hoofoobitcoinwallet/" class="fa fa-instagram"></a>
+          </div>
+
+          <p class="m-0 text-center text-white">Copyright &copy; HooFoo.Inc 2017</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.6/js/swiper.min.js"></script>
+
+    <script src="js/app.js"></script>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        sr.reveal('.fade', {duration: 500, viewFactor: 0.4});
+    </script>
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 30,
+//            effect: 'fade',
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            fade: {
+                   crossFade: true
+           },
+        });
     </script>
   </body>
+
 </html>
